@@ -1,0 +1,3 @@
+<!-- Site-wide config file -->
+
+{% set RegUrl = "https://home.uceusa.com/" %}

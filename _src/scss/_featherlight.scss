@@ -1,0 +1,141 @@
+﻿/**
+ * Featherlight - ultra slim jQuery lightbox
+ * Version 0.2.2 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2014, Noel Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+.lightbox {
+	display: none;
+}
+.featherlight {
+	display: none;
+	position:fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	height: 100%;
+	text-align: center;
+	cursor: pointer;
+	background: #333;
+	background: rgba(0, 0, 0, 0.75);
+}
+.featherlight .featherlight-close-icon {
+	position: absolute;
+	z-index: 9999;
+	right: 0;
+	top: 0;
+	line-height: 25px;
+	width: 25px;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	background: #fff;
+	color: #000;
+	border-radius: 0 0 0 3px;
+}
+.featherlight.video  .featherlight-close-icon {
+	right: -4px;
+	top: -4px;
+}
+.featherlight:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+.featherlight .featherlight-content {
+	text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	padding: 25px;
+	width: 95%;
+	max-width: 650px;
+	max-height: 95%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: #fff;
+	cursor: auto;
+	border-radius: 3px;
+}
+.featherlight.video .featherlight-content {
+	padding: 0;
+	max-width: 853px;
+	max-height: auto;
+	border: 4px solid #ffffff;
+}
+.featherlight.video .vid_modal {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+	width: 100%;
+}
+.featherlight.video .vid_modal object,
+.featherlight.video .vid_modal embed,
+.featherlight.video .vid_modal iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.featherlight .featherlight-inner {
+	display: block;
+}
+/*.featherlight-iframe .featherlight-content {
+	min-height: 60%;
+}*/
+.featherlight iframe {
+	border: none;
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	height: 100%;
+	width: 100%;
+}
+.featherlight .featherlight-image {
+	width: 100%;
+	max-height: 85%;
+}
+
+/* ------ for ie_alert ------ */
+.featherlight.ie_alert {
+	cursor: default;
+}
+.featherlight.ie_alert .featherlight-content {
+	/*margin-top: 10%;*/
+	padding: 20px 30px;
+	max-width: 720px;
+}
+.featherlight.ie_alert h3 {
+	font-size: 24px;
+	margin: 10px 0 15px 0;
+}
+.featherlight.ie_alert a.ie_upgrade_btn {
+	display: block;
+	margin: 30px auto 20px auto;
+	width: 250px;
+	height: 45px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 43px;
+	background: #99cc33;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bfe068), color-stop(100%, #76b51c));
+	background-image: -webkit-linear-gradient(#bfe068, #76b51c);
+	background-image: -moz-linear-gradient(#bfe068, #76b51c);
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfe068', endColorstr='#76b51c',GradientType=0 );
+	color: #ffffff;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+	border-bottom: 0;
+	border-radius: 4px;
+	zoom: 1;
+}
+.ie_alert a.ie_upgrade_btn:hover {
+	background: #bfe068;
+}

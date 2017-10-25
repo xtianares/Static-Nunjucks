@@ -1,0 +1,22 @@
+{% extends "MainTemplate.html" %}
+
+{% block Content %}
+
+    <!--
+    InnerTemplate html code goes here
+    it's best to use this classes for the main content area: class="col-md-12 col-lg-8"
+    it's best to use this classes for the sidebar area: class="col-sm-9 col-md-7 col-lg-4 centered-sm uncentered-lg
+    -->
+
+    <section id="content" class="cfix">
+        <article class="col-md-12 col-lg-8">
+            <!-- You write code for this content block in another file -->
+            {% block MainContent %}{% endblock %}
+        </article>
+        <aside id="aside" class="col-sm-9 col-md-7 col-lg-4 centered-sm uncentered-lg">
+            <!-- Your Sidebar HTML Goes here -->
+        </aside>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,288 @@
+/* --------------------------------------------------------------
+	Import CCS Dependencies
+-------------------------------------------------------------- */
+@import 'normalize';
+@import 'grid';
+@import 'icons';
+@import 'default';
+@import 'nav';
+@import 'components'; /* remove this one if not needed */
+/* --------------------------------------------------------------
+	Start Project CSS
+-------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+	ASC Default stuff
+----------------------------------------------------------------------------- */
+.price {
+	display: inline-block;
+	margin: 10px;
+	padding: 0;
+	width: auto;
+	height: auto;
+	color: #555;
+	text-align: center;
+	font: bold 0 'Trebuchet MS', 'Droid Serif', Arial, sans-serif;
+	overflow: hidden;
+	text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+	vertical-align: middle;
+}
+.price.ribbon {
+	margin-top: -6px;
+	margin-bottom: 0;
+	padding: 28px 0 0 0;
+	width: 140px;
+	height: 93px;
+	color: #fff;
+	background: url(../images/price_bg.png) no-repeat 0 0;
+}
+.price.burst {
+	padding: 60px 0 0 0;
+	width: 155px;
+	height: 155px;
+	color: #fff;
+	background: url(../images/price_bg_burst.png) no-repeat 50% 50%;
+}
+.price span.dollar_sign, .price span.cents {
+	display: inline-block;
+	margin: 5px 0 0 0;
+	font-size: 30px;
+	line-height: 30px;
+	vertical-align: top;
+}
+.price span.dollars {
+	display: inline-block;
+	margin-left: -1px;
+	font-size: 50px;
+	line-height: 50px;
+	letter-spacing: -1px;
+	vertical-align: top;
+}
+.price span.cents {
+	margin: 4px 0 0 3px;
+	letter-spacing: -1px;
+}
+.action {
+	float: none;
+	margin: 20px auto;
+	padding: 0 0 5px 0;
+	max-width: 450px;
+	height: 75px;
+	background: #fff;
+	border: 1px solid #37474f;
+	border-radius: 4px;
+	text-align: center;
+}
+.action .price.ribbon {
+	vertical-align: top;
+}
+.action .btn {
+	margin-top: 14px;
+	max-width: 200px;
+	vertical-align: middle;
+}
+/* --------- asc styles --------- */
+#header {
+	min-height: 80px;
+}
+#header a.logo {
+	float: left;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	border: 0;
+	width: 75%;
+	max-width: 600px; /* change this to the width of the actual logo */
+}
+#header a.logo img {
+	margin-right: 20px;
+	vertical-align: middle;
+	width: auto;
+	max-width: 100%;
+}
+#header a.logo span {
+	display: inline-block;
+	font-size: 30px;
+	color: #F96E5B;
+	vertical-align: middle;
+}
+#header #support {
+	display: none;
+	float: right;
+	margin: 0 0 0 0;
+	width: auto;
+}
+#header #support p {
+	float: right;
+	margin: 2px 12px 0 7px;
+}
+#header #support p strong {
+	font-size: 16px;
+}
+#header #support a.login {
+	float: right;
+	margin: 0 0 0 0;
+	padding: 0 12px 2px 12px;
+	font-weight: normal;
+	color: #fff;
+	background: #37474F;
+	text-decoration: none;
+	border-radius: 0 0 4px 4px;
+	border: 0;
+}
+#header #support a.login:hover {
+	color: #ccc;
+}
+#header #support a.livechat:hover:before {
+	color: #37474F;
+}
+#header #support span.phone {
+	display: none;
+	margin-right: 5px;
+	padding-right: 8px;
+	border-right: 1px dotted #333;
+}
+@media (min-width: 56.25em) { /* roughtly 900px/16px */
+	#header #support span.phone { display: inline-block; }
+}
+#header #support a.livechat {
+	color: #555;
+}
+#header a.login:before {
+	display: inline-block;
+	margin-top: 1px;
+	margin-right: 6px;
+	width: inherit;
+	height: inherit;
+	content: "\e828";
+	color: inherit;
+	font-family: 'icons';
+	font-weight: normal;
+	text-align: center;
+	font-size: 105%;
+	vertical-align: top;
+}
+#header a.livechat:before {
+	display: inline-block;
+	margin-right: 5px;
+	width: inherit;
+	height: inherit;
+	content: "\e830";
+	color: inherit;
+	font-family: 'icons';
+	font-weight: normal;
+	text-align: center;
+	font-size: 105%;
+	vertical-align: top;
+}
+#banner {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #ebebeb;
+	border-radius: 4px;
+}
+#footer {
+	padding: 15px 0 10px 0;
+	color: #999;
+	border-top: 1px dashed #ccc;
+	overflow: hidden;
+}
+#footer p {
+	margin: 0 0 5px 0;
+}
+#footer p.trustmark {
+	display: none;
+	margin: 0;
+}
+#footer a {
+	color: #999;
+}
+#footer .social a {
+	border: 0;
+}
+#footer img {
+	display: inline-block;
+}
+#footer #trustwaveSealImage {
+	float: left;
+	margin: 0 10px 30px 10px;
+}
+#footer img.bbb {
+	float: right;
+	margin: 0 10px 30px 10px;
+}
+#back_top {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 45px;
+  height: 45px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  color: #fff;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  z-index: 10;
+}
+#back_top:hover {
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  border: 0;
+}
+#back_top:before {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 45px;
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: '\e825';
+  font-size: 120%;
+}
+/* ----------------------------------------------------------------------------
+	Start Page Styles
+----------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------
+	Page Media Queries
+----------------------------------------------------------------------------- */
+/*
+$breakpoints:
+xs: 0,
+s: 34.375em,
+m: 45em,
+l: 60em,
+xl: 72em
+*/
+
+@media (min-width: 34.375em) { /* Small devices (landscape phones, 549px and up) - col-sm-* */
+	#header_wrap { border-top: 3px solid #37474F; }
+    #header #support { display: block; }
+
+}
+@media (min-width: 48em) { /* Medium devices (tablets, 768px and up) - col-md-* */
+	#header #support span.phone { display: inline-block; }
+
+}
+@media only screen and (min-width: 56.25em) { /* roughtly 900px/16px */
+	#footer p.trustmark { display: block; }
+
+}
+@media (min-width: 62em) { /* Large devices (desktops, 992px and up) - col-lg-* */
+
+}
+@media (min-width: 64em) {  /* roughtly 1024px/16px */
+
+}
+@media (min-width: 75em) { /* Extra large devices (large desktops, 1200px and up) - col-xl- */
+
+}
