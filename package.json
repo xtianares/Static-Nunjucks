@@ -1,5 +1,5 @@
 {
-  "name": "Static Sites",
+  "name": "StaticSites",
   "version": "1.0.0",
   "description": "Build tool for static sites using Nunjucks",
   "main": "gulpfile.js",
