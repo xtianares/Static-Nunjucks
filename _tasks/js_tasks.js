@@ -12,7 +12,9 @@ gulp.task('site:js', function() {
   let jsbuild = gulp.src(paths.js.siteRootFiles)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.deporder())
-    .pipe(plugin.babel())
+    .pipe(plugin.babel({
+			presets: ['@babel/preset-env']
+		}))
     .pipe(plugin.concat('main.min.js'));
 
     config.set(jsbuild); // run replacement settings from config file

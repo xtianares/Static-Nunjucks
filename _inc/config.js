@@ -6,6 +6,7 @@ const
 
   // replacement settings
   exampleSetting     = process.env.THE_SETTING || 'sample-setting';
+  site_url           = 'https://www.mydomain.com' // root url of the website
 ;
 
 // run replacement for each environment
@@ -33,5 +34,6 @@ module.exports =  {
         .pipe(replace('exampleSetting_replaced_during_build', exampleSetting));
     }
     theStream = theStream.on("data", function() {}); // magic fix for the issue where pages just dont get optimized
-  }
+  },
+  site_url: site_url
 }

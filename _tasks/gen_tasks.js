@@ -22,6 +22,38 @@ gulp.task('rootfiles', function() {
   return rootfiles.pipe(gulp.dest(paths.site.dest));
 });
 
+// generate sitemap.xml file
+gulp.task('sitemap', function () {
+    gulp.src([paths.site.dest + '**/*.html', '!_build/registration/**/*.html'], {
+            read: false
+        })
+        .pipe(plugin.sitemap({
+            siteUrl: config.site_url // this is set in the config.xml
+        }))
+        .pipe(gulp.dest(paths.site.dest));
+});
+
+gulp.task('generate-service-worker', function(callback) {
+    swPrecache.write(paths.site.dest + "service-worker.js", {
+        //staticFileGlobs: [paths.site.dest + '/**/*.{js,html,aspx,css,png,jpg,webp,gif,svg,eot,ttf,woff}'],
+        staticFileGlobs: [
+            paths.site.dest + '/!(registration)/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            paths.site.dest + '/*.{js,html,css}'
+        ],
+        runtimeCaching: [{
+            urlPattern: /^http([s]*):\/\/(.*)\.googleapis\.com\/(.*)/,
+            handler: 'networkFirst',
+            options: {
+                cache: {
+                    maxEntries: 10,
+                    name: 'google-cache'
+                }
+            }
+        }],
+        stripPrefix: paths.site.dest
+    }, callback);
+});
+
 gulp.task('set-dl-env', function() {
   return process.env.NODE_ENV = 'Development';
 });
