@@ -37,5 +37,5 @@
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
     "sw-precache": "^5.2.0"
-  },
+  }
 }
