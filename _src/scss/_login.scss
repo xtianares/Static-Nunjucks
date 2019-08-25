@@ -1,0 +1,144 @@
+/* ----------------------------------------------------------------------------
+    Login page style
+----------------------------------------------------------------------------- */
+#login-wrap {
+    margin-top: -30px;
+    padding-top: 0;
+}
+.login-box {
+    margin-top: 80px;
+    padding-top: 50px;
+    border: 0;
+
+    .shield {
+        position: absolute;
+        margin-left: -60px;
+        width: 120px;
+        height: 120px;
+        left: 50%;
+        top: -60px;
+        text-align: center;
+        background-color: #e6e9ed;
+        border-radius: 50%;
+
+        .material-icons {
+            font-size: 70px;
+            line-height: 120px;
+            color: #fff;
+        }
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    .form-group.buttons {
+        margin-top: 2.3rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: hidden;
+        text-align: center;
+
+        .login-button {
+            min-width: 250px;
+        }
+        .forgot-password {
+            display: inline-block;
+            margin-top: 25px;
+            vertical-align: middle;
+            color: inherit;
+            opacity: .4;
+        }
+    }
+    .form-group.trouble-login {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        opacity: .6;
+    }
+    .focus-hightlight {
+        display: block;
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: #a3d39c;
+        transition: width ease-in-out .3s, left ease-in-out .3s;
+    }
+    label {
+        margin-left: 10px;
+        margin-bottom: 0;
+        opacity: .4;
+    }
+    .remember-me label {
+        color: #adadad;
+    }
+    input.form-control {
+        padding: 5px 10px;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #e6e9ed;
+    }
+    input.form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #e6e9ed;
+        outline: 0;
+        box-shadow: none;
+    }
+    input.form-control:focus + .focus-hightlight {
+        width: 100%;
+        left: 0;
+    }
+}
+.login-blurb {
+    font-size: 2rem;
+}
+p.login-copyright {
+    opacity: .4;
+    font-size: .8rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+    Page Media Queries
+----------------------------------------------------------------------------- */
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .login-box {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .login-blurb {
+        font-size: 3.5rem;
+    }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .login-box {
+        .form-group.buttons {
+            .login-button {
+                min-width: 200px;
+            }
+            br {
+                display: none;
+            }
+            .forgot-password {
+                margin-top: 5px;
+            }
+        }
+    }
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

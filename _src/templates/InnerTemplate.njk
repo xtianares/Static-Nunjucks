@@ -1,0 +1,9 @@
+{% extends "MainTemplate.njk" %}
+
+{% block MainContent %}
+  {{ super() }}
+
+  {% block Content %}{% endblock %}
+
+  {% include "./include/Sidebar.njk" %}
+{% endblock %}

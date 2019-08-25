@@ -1,14 +1,18 @@
-{% set PageTitle = "Page title goes here" %}
-{% set PageDescription = "Page description goes here" %}
+{% set PageTitle = "My Account Login Page" %}
+{% set PageDescription = "Univeristy Platform Dashboard" %}
 {% set CanonicalPage = "" %}
 
-{% extends "MainTemplate.html" %}
+{% extends "MainTemplate.njk" %}
 
-{% block HeadIncludes %}{% endblock %}
-
-{% block Content %}
-    <!-- Content HTML goes here -->
-    <h1 class="center">Hello Word...</h1>
-    <p class="center">Lets start building static websites with Gulp!</p>
+{% block MainContent %}
+    <section id="login-wrap" class="wrap">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h1 class="login-blurb mb-3 mb-md-5 font-weight-light text-center">Static NunJucks Starter Template</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

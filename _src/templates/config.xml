@@ -1,3 +1,1 @@
-<!-- Site-wide config file -->
-
-{% set RegUrl = "https://home.uceusa.com/" %}
+{% set REPLACE_GTM_CONTAINER_ID = "GTM-EXAMPLE_ID" %}

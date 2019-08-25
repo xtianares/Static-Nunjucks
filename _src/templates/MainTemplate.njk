@@ -1,0 +1,73 @@
+{% import "config.xml" as Config %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{PageTitle}}</title>
+  <meta name="description" content="{{PageDescription}}" />
+  <meta name="theme-color" content="#0098DA" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <!--<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Fjalla+One" />
+  <link rel="stylesheet" href="/css/style.css" />-->
+
+  <script id="loadcss">
+    (function(u,s){!function(e){"use strict";var n=function(n,t,o){var l,r=e.document,i=r.createElement("link");if(t)l=t;else{var a=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=a[a.length-1]}var d=r.styleSheets;i.rel="stylesheet",i.href=n,i.media="only x",l.parentNode.insertBefore(i,t?l:l.nextSibling);var f=function(e){for(var n=i.href,t=d.length;t--;)if(d[t].href===n)return e();setTimeout(function(){f(e)})};return i.onloadcssdefined=f,f(function(){i.media=o||"all"}),i};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);for(var i in u){loadCSS(u[i],s);}}(['/css/bootstrap/bootstrap.css','https://fonts.googleapis.com/icon?family=Material+Icons','/css/site.css'],document.getElementById("loadcss")));
+  </script>
+
+  <script>
+    WebFontConfig = { google: { families: ['Open Sans:400,600,700', 'Fjalla One'] } };
+    (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+    })(document);
+  </script>
+
+  <!-- You write code for this content block in another file -->
+  {% block HeadIncludes %}{% endblock %}
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{Config.REPLACE_GTM_CONTAINER_ID}}');</script>
+  <!-- End Google Tag Manager -->
+
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{Config.REPLACE_GTM_CONTAINER_ID}}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager -->
+
+<header id="header-wrapper" class="clearfix">
+  {% include "./include/Navbar.njk" %}
+</header> <!-- end #header_wrapper -->
+
+{% block MainContent %}{% endblock %}
+
+<footer id="footer-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="footer col-sm-12">
+                <p class="copyright text-center mb-0">Copyright &#169; <script id="year_display">var y=new Date().getFullYear();var s=document.getElementById("year_display");s.parentNode.replaceChild(document.createTextNode(y),s);</script>, Dummy Corp Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer> <!-- end #footer_wrap -->
+
+<!-- bootstrap JS files -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- out custom JS files -->
+<script type="text/javascript" src="/js/main.min.js"></script>
+
+<!-- You write code for this content block in another file -->
+{% block FooterIncludes %}{% endblock %}
+
+</body>
+</html>
