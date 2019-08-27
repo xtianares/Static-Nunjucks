@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/css/style.css" />-->
 
   <script id="loadcss">
-    (function(u,s){!function(e){"use strict";var n=function(n,t,o){var l,r=e.document,i=r.createElement("link");if(t)l=t;else{var a=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=a[a.length-1]}var d=r.styleSheets;i.rel="stylesheet",i.href=n,i.media="only x",l.parentNode.insertBefore(i,t?l:l.nextSibling);var f=function(e){for(var n=i.href,t=d.length;t--;)if(d[t].href===n)return e();setTimeout(function(){f(e)})};return i.onloadcssdefined=f,f(function(){i.media=o||"all"}),i};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);for(var i in u){loadCSS(u[i],s);}}(['/css/bootstrap/bootstrap.css','https://fonts.googleapis.com/icon?family=Material+Icons','/css/site.css'],document.getElementById("loadcss")));
+    (function(u,s){!function(e){"use strict";var n=function(n,t,o){var l,r=e.document,i=r.createElement("link");if(t)l=t;else{var a=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=a[a.length-1]}var d=r.styleSheets;i.rel="stylesheet",i.href=n,i.media="only x",l.parentNode.insertBefore(i,t?l:l.nextSibling);var f=function(e){for(var n=i.href,t=d.length;t--;)if(d[t].href===n)return e();setTimeout(function(){f(e)})};return i.onloadcssdefined=f,f(function(){i.media=o||"all"}),i};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);for(var i in u){loadCSS(u[i],s);}}(['/css/bootstrap/bootstrap.css','https://fonts.googleapis.com/icon?family=Material+Icons','/css/main.css'],document.getElementById("loadcss")));
   </script>
 
   <script>
@@ -42,20 +42,20 @@
 <!-- End Google Tag Manager -->
 
 <header id="header-wrapper" class="clearfix">
-  {% include "./include/Navbar.njk" %}
+  {% include "./partials/Navbar.njk" %}
 </header> <!-- end #header_wrapper -->
 
 {% block MainContent %}{% endblock %}
 
-<footer id="footer-wrap">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="footer col-sm-12">
-                <p class="copyright text-center mb-0">Copyright &#169; <script id="year_display">var y=new Date().getFullYear();var s=document.getElementById("year_display");s.parentNode.replaceChild(document.createTextNode(y),s);</script>, Dummy Corp Inc. All Rights Reserved.</p>
-            </div>
-        </div>
+<footer id="footer-wrap" class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="copyright text-center mb-0">Copyright &#169; <script id="year_display">var y=new Date().getFullYear();var s=document.getElementById("year_display");s.parentNode.replaceChild(document.createTextNode(y),s);</script>, Dummy Corp Inc. All Rights Reserved.</p>
+      </div>
     </div>
-</footer> <!-- end #footer_wrap -->
+  </div>
+</footer>
 
 <!-- bootstrap JS files -->
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->

@@ -24,7 +24,7 @@ gulp.task('rootfiles', function() {
 
 // generate sitemap.xml file
 gulp.task('sitemap', function () {
-    gulp.src([paths.site.dest + '**/*.html', '!_build/registration/**/*.html'], {
+    gulp.src([paths.site.dest + '**/*.html'], {
             read: false
         })
         .pipe(plugin.sitemap({

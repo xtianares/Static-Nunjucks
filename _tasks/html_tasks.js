@@ -10,7 +10,7 @@ const
 // site page/html processing
 gulp.task('site:nunjucks', function() {
   let page = gulp.src(paths.html.sitePages)
-    .pipe(plugin.newer(paths.site.dest))
+    // .pipe(plugin.newer(paths.site.dest))
     .pipe(plugin.nunjucksRender({
       ext: '/index.html',
       path: [paths.html.templatesFolder]

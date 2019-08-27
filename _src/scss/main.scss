@@ -13,400 +13,41 @@
     Start Project CSS
 -------------------------------------------------------------- */
 html {
-    position: relative;
-    min-height: 100%;
-    background-color: #f5f7fa;
-    overflow-y: scroll;
-}
-html.show-sidebar {
-    overflow-y: hidden;
+  position: relative;
+  min-height: 100%;
+  background-color: #fff;
+  overflow-y: scroll;
 }
 body {
-    padding-bottom: 60px;
-    padding-top: 50px;
-    font-family: 'Open Sans', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
-    text-rendering: optimizeLegibility;
-    color: #555555;
-    background-color: #f5f7fa;
-}
-/* .navbar {
-    background-color: #405CA5 !important;
-} */
-#footer-wrap {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #ffffff;
-    background-color: #6d7785;
-    z-index: 11;
-}
-#footer-wrap .footer {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.8rem;
+  margin-bottom: 60px;
+  font-family: 'Open Sans', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  color: #555555;
 }
 .wrap {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 .container-fluid.but-fixed {
-    max-width: 1230px;
-}
-.alerts-wrap {
-    .alert:last-child {
-        margin-bottom: 2rem;
-    }
-}
-.welcome-blurb {
-    margin-right: .5rem;
-}
-.sort-btn {
-    .btn:focus, .btn:active {
-        box-shadow: none !important;
-    }
-    .dropdown-menu {
-        min-width: 250px;
-        top: 100% !important;
-        right: 0 !important;
-        left: auto !important;
-        transform: none !important;
-
-        .search-courses {
-            margin-top: 1rem;
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-    }
-    .dropdown-item {
-        padding-left: 1rem;
-        padding-right: 1rem;
-
-        &.active, &:active {
-            color: #16181b;
-            text-decoration: none;
-            background-color: #f1f1f1;
-        }
-    }
-}
-.card {
-    border: 0;
-
-    .card-header {
-        background-color: #e6e9ed;
-        border-bottom: 0;
-
-        h4 {
-            font-weight: 600;
-        }
-        .card-edit {
-            line-height: 1.2;
-            a {
-                color: inherit;
-                opacity: .5;
-            }
-        }
-    }
-    /*.card-body {
-        padding-bottom: 1.5rem;
-    }*/
-    .status-alert {
-        margin-bottom: 10px;
-        .course-status {
-            padding-bottom: 0;
-            border-bottom: 0;
-        }
-    }
-    .status-title {
-        opacity: .5;
-        font-size: .8rem;
-    }
-    .status-type {
-        font-weight: 600;
-    }
-    .course-alerts {
-        margin-right: 5px;
-
-        .dropdown-menu {
-            padding: 0;
-            min-width: 300px;
-            max-width: 300px;
-            font-size: .9rem;
-            border: 1px solid rgba(0,0,0,.05);
-            box-shadow: 0 .25rem .75rem rgba(0,0,0,.075);
-        }
-        .dropdown-item, .dropdown-header {
-            padding: .5rem .75rem .6rem .75rem;
-            white-space: normal;
-        }
-        .dropdown-item {
-            padding-right: 1.75rem;
-            border-top: 1px solid rgba(0,0,0,.05);
-            position: relative;
-            &:after {
-                display: block;
-                width: 15px;
-                height: 15px;
-                line-height: 15px;
-                margin-top: -7px;
-                font-size: 1.3em;
-                font-family: 'Material Icons';
-                content: "\e315";
-                border: 0;
-                right: 10px;
-                top: 50%;
-                position: absolute;
-            }
-        }
-        .dropdown-header {
-            font-size: 1em;
-            font-weight: 600;
-            color: #fff;
-            background-color: #6D7785;
-            border-radius: .2rem .2rem 0 0;
-        }
-    }
-    .blocking-alert, .non-blocking-alert {
-        display: inline-block;
-        margin: 10px;
-        margin-top: 15px;
-        color: #b8b8b8;
-        position: relative;
-        cursor: pointer;
-
-        .material-icons {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .alert-count {
-            padding: 0 4px;
-            position: absolute;
-            font-size: 0.7em;
-            color: #fff;
-            border-radius: 2px;
-            top: -5px;
-            left: 80%;
-        }
-    }
-    .blocking-alert {
-        &:hover {
-            color: inherit;
-        }
-        .alert-count {
-            background-color: #da4453;
-        }
-    }
-    .non-blocking-alert {
-        &:hover {
-            color: inherit;
-        }
-        .material-icons {
-            font-size: 1.3em;
-        }
-        .alert-count {
-            background-color: #f6bb42;
-        }
-    }
-    .show .blocking-alert, .show .non-blocking-alert {
-        color: inherit;
-    }
-    .course-progress {
-        height: 5px;
-    }
-    .course-progress {
-        height: 8px;
-        margin-bottom: 30px;
-
-        .progress-bar {
-            background-color: #a3d39c !important;
-            border-radius: .25rem;
-        }
-    }
-    .order-details {
-        font-size: .8em;
-        opacity: .5;
-    }
-}
-th.info-title {
-    width: 35%;
-    max-width: 150px;
-}
-.profile-image {
-    margin: 1.8rem auto 0 auto;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 120px;
-    height: 120px;
-
-    img {
-        display: inline-block;
-        vertical-align: middle;
-        width: 100%;
-    }
-}
-.help-icon {
-    margin: 1.8rem auto 0 auto;
-    width: 120px;
-    height: 120px;
-
-    img {
-        width: 100%;
-        max-width: auto;
-    }
-}
-.profile-details {
-    margin-bottom: 1.3rem;
-
-    .profile-name {
-        display: block;
-        font-size: 1.3em;
-        color: #0099ff;
-    }
-    .profile-email, .profile-address {
-        display: block;
-        opacity: .7;
-    }
-
-}
-.btn.profile-edit {
-    min-width: 150px;
-}
-.course-list {
-    .list-group-item a {
-        color: inherit;
-    }
-}
-.empty-box {
-    background-color: transparent;
-    border: 0;
-    box-shadow: none !important;
-    border-radius: 0;
-}
-a.contact_icon {
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
-
-    .material-icons {
-        display: inline-block;
-        border: 2px solid #ccc;
-        padding: 15px;
-        border-radius: 50%;
-        vertical-align: middle;
-        color: #ccc;
-        margin-right: 5px;
-    }
-    .material-icons + span {
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-#botom-upsell-wrap {
-    /*background-color: #fafafa;*/
-    border-top: 1px solid #e3e3e3;
-}
-.upsell-box.card {
-    border: 0;
-
-    .upsell-thumb {
-        display: none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 20px;
-        width: 25%;
-        max-width: 120px;
-    }
-    .upsell-description {
-        overflow: hidden;
-    }
-    .card-text {
-        font-size: .95em;
-    }
-}
-.modal-header {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    color: #fff;
-    background-color: #343A40;
-    border-top-left-radius: .2rem;
-    border-top-right-radius: .2rem;
-}
-.modal-body {
-    padding-top: 1.5rem;
-}
-.modal-footer {
-    border-top: 0;
-    .btn {
-        min-width: 100px;
-    }
-}
-.modal-backdrop {
-    opacity: 0.8 !important;
+  max-width: 1230px;
 }
 
-.btn .material-icons {
-    vertical-align: middle;
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
-.custom-control-label {
-    cursor: pointer;
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-/* ACCORDION, used in FAQs */
-p + .accord {
-    margin-top: 20px;
-}
-.accord {
-    padding: 10px 10px 5px 10px;
-    border-bottom: 1px dotted #ccc;
 
-    &:first-child {
-        border-top: 1px dotted #ccc;
-    }
-    h3 {
-        margin-left: 0;
-        padding-right: 80px;
-        position: relative;
-        cursor: pointer;
-        margin-top: 0;
-        margin-bottom: 8px;
-    }
-    h3:hover, h3:active, h3:focus {
-        color: #4285f4;
-    }
-    h3:before {
-        color: #4285f4;;
-        content: "+";
-        display: none;
-        font-size: 18px;
-        font-weight: bold !important;
-        height: inherit;
-        margin-left: -20px;
-        vertical-align: middle;
-        width: 20px;
-        margin-top: -3px;
-    }
-    h3.active:before {
-        content: "-";
-    }
-    h3:after {
-        color: #4285f4;
-        content: "+ More Info";
-        display: block;
-        font-size: 14px;
-        font-weight: normal!important;
-        font-family: 'Open Sans','Trebuchet MS',Verdana,Arial,Helvetica;
-        height: inherit;
-        vertical-align: middle;
-        position: absolute;
-        top: 6px;
-        right: 0;
-    }
-    h3.active:after {
-        content: "- Less Info";
-    }
-    .accord_content {
-        margin-top: 10px;
-        display: none;
-    }
-}
+
 /* ----------------------------------------------------------------------------
     Page Media Queries
 ----------------------------------------------------------------------------- */
@@ -416,38 +57,16 @@ p + .accord {
         padding-left: 30px;
         padding-right: 30px;
     }
-    .card-deck.help-deck {
-        display: block;
-        margin-bottom: .75rem;
-        table-layout: fixed;
-    }
-    .upsell-box.card {
-        .upsell-thumb {
-            display: block;
-        }
-    }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .accord h3 {
-        margin-left: 20px;
 
-        &:before {
-            display: inline-block;
-        }
-    }
-    th.info-title {
-        width: 30%;
-    }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .card-deck.help-deck {
-        display: -ms-flexbox;
-        display: flex;
-    }
+
 }
 
 // Extra large devices (large desktops, 1200px and up)

@@ -18,7 +18,7 @@ module.exports = {
   css: {
     siteFiles: '_src/scss/**/*',
     siteFolder: '_src/scss/',
-    siteSass: '_src/scss/site.scss',
+    siteSass: '_src/scss/main.scss',
     siteDest: '_dist/css/',
     bsFiles: '_src/bootstrap/scss/**/*',
     bsFolder: '_src/bootstrap/scss/',

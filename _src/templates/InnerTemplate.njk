@@ -3,7 +3,17 @@
 {% block MainContent %}
   {{ super() }}
 
-  {% block Content %}{% endblock %}
+  <section class="wrap">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          {% block Content %}{% endblock %}
+        </div>
+        <div class="col-12 col-lg-4">
+          {% include "./partials/Sidebar.njk" %}
+        </div>
+      </div>
+    </div>
+  </section>
 
-  {% include "./include/Sidebar.njk" %}
 {% endblock %}

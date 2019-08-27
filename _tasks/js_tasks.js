@@ -32,7 +32,7 @@ gulp.task('site:js', function() {
 
 // copying js files to build forder
 gulp.task('site:js-copy', function() {
-  return gulp.src([paths.js.siteFiles, '!' + paths.js.regFolder + 'amersc-registration.js'])
+  return gulp.src([paths.js.siteFiles])
     .pipe(plugin.newer(paths.js.siteDest))
     .pipe(gulp.dest(paths.js.siteDest));
 });
