@@ -20,5 +20,5 @@ module.exports =  {
   fs              : require('fs-extra'),
   critical        : require('critical').stream,
   runSequence     : require('run-sequence'),
-  swPrecache      : require('sw-precache')
+  workboxBuild    : require('workbox-build')
 }

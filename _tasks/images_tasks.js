@@ -8,7 +8,7 @@ const
 ;
 
 // image processing
-gulp.task('site:imagemin', function() {
+gulp.task('imagemin', () => {
   return gulp.src(paths.images.siteFiles)
     .pipe(plugin.newer(paths.images.siteDest))
     .pipe(plugin.imagemin([
@@ -25,11 +25,11 @@ gulp.task('site:imagemin', function() {
     .pipe(gulp.dest(paths.images.siteDest));
 });
 
-gulp.task('site:imagewebp', function() {
+gulp.task('imagewebp', () => {
   return gulp.src(paths.images.siteFiles)
     .pipe(plugin.newer(paths.images.siteDest))
     .pipe(plugin.webp({ lossless: true, quality: 65 }))
     .pipe(gulp.dest(paths.images.siteDest));
 });
 
-gulp.task('images', ['site:imagemin', 'site:imagewebp']);
+gulp.task('images', ['imagemin', 'imagewebp']);

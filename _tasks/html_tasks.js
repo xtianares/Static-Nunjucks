@@ -8,7 +8,7 @@ const
 ;
 
 // site page/html processing
-gulp.task('site:nunjucks', function() {
+gulp.task('nunjucks', () => {
   let page = gulp.src(paths.html.sitePages)
     // .pipe(plugin.newer(paths.site.dest))
     .pipe(plugin.nunjucksRender({
@@ -33,7 +33,7 @@ gulp.task('site:nunjucks', function() {
 });
 
 // complete html build and moving index file outside of the "index" folder
-gulp.task('html', ['site:nunjucks'], function() {
+gulp.task('html', ['nunjucks'], () => {
   let move = plugin.fs.move (
     paths.site.dest + 'index/index.html', // file to move
     paths.site.dest + 'index.html',       // where to move

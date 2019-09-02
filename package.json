@@ -36,6 +36,6 @@
     "gulp-webserver": "^0.9.1",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
-    "sw-precache": "^5.2.0"
+    "workbox-build": "^4.3.1"
   }
 }

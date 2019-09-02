@@ -8,7 +8,7 @@ const
 ;
 
 // CSS processing using sass
-gulp.task('css', ['images'], function() {
+gulp.task('css', ['images'], () => {
   return gulp.src(paths.css.siteSass)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.sass({
@@ -26,7 +26,7 @@ gulp.task('css', ['images'], function() {
 });
 
 // CSS processing using sass
-gulp.task('bootstrap_css', ['css'], function() {
+gulp.task('css:bootstrap', ['css'], () => {
   return gulp.src(paths.css.bsSass)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.sass({
@@ -44,7 +44,7 @@ gulp.task('bootstrap_css', ['css'], function() {
 });
 
 // generate and inline critical css for all pages
-gulp.task('site:critical', ['css', 'site:nunjucks'], function () {
+gulp.task('css:critical', ['css:bootstrap', 'nunjucks'], () => {
   var criticalpath =  gulp.src([paths.site.dest+'**/*.html', '!'+paths.site.dest+'index/index.html'])
   // minify production code
   if (process.env.NODE_ENV == 'Staging' || process.env.NODE_ENV == 'Production') {
@@ -52,7 +52,7 @@ gulp.task('site:critical', ['css', 'site:nunjucks'], function () {
     .pipe(plugin.critical({
       base: paths.site.dest,
       inline: true,
-      css: [paths.css.siteDest+'site.css'],
+      css: [paths.css.siteDest+'main.css', paths.css.siteDest+'bootstrap/bootstrap.css'],
       minify: true,
       include: ['#menutoggle', '.container.fluid'],
       timeout: 90000,

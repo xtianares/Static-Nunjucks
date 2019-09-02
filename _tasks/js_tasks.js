@@ -8,7 +8,7 @@ const
 ;
 
 // site js processing
-gulp.task('site:js', function() {
+gulp.task('js:concat', () => {
   let jsbuild = gulp.src(paths.js.siteRootFiles)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.deporder())
@@ -31,11 +31,14 @@ gulp.task('site:js', function() {
 });
 
 // copying js files to build forder
-gulp.task('site:js-copy', function() {
+gulp.task('js:copy', () => {
   return gulp.src([paths.js.siteFiles])
     .pipe(plugin.newer(paths.js.siteDest))
+    .pipe(plugin.babel({
+			presets: ['@babel/preset-env']
+		}))
     .pipe(gulp.dest(paths.js.siteDest));
 });
 
 // js processing
-gulp.task('js', ['site:js', 'site:js-copy']);
+gulp.task('js', ['js:concat', 'js:copy']);

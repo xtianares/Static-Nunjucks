@@ -10,13 +10,13 @@ var
 ;
 
 // run folder tasks
-gulp.task('do-all', ['html', 'images', 'css', 'bootstrap_css', 'js', 'rootfiles', 'site:critical']);
+gulp.task('do-all', ['html', 'images', 'css', 'css:bootstrap', 'js', 'rootfiles', 'css:critical']);
 
 gulp.task('build', function(callback) {
   if (process.env.NODE_ENV == 'Staging' || process.env.NODE_ENV == 'Production') {
-      plugin.runSequence('site:clean', 'do-all', 'sitemap', 'generate-service-worker', callback);
+    plugin.runSequence('clean', 'do-all', 'sitemap', 'generate-service-worker', callback);
   } else {
-      plugin.runSequence('site:clean', 'do-all', 'sitemap', callback);
+    plugin.runSequence('clean', 'do-all', 'sitemap', callback);
   }
 });
 

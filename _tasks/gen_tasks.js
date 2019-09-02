@@ -8,7 +8,7 @@ const
 ;
 
 // copy files that need to be in the root folder
-gulp.task('rootfiles', function() {
+gulp.task('rootfiles', () => {
   let rootfiles = gulp.src(paths.root.files)
 
   if (process.env.NODE_ENV == 'Staging' || process.env.NODE_ENV == 'Production') {
@@ -23,49 +23,57 @@ gulp.task('rootfiles', function() {
 });
 
 // generate sitemap.xml file
-gulp.task('sitemap', function () {
-    gulp.src([paths.site.dest + '**/*.html'], {
-            read: false
-        })
-        .pipe(plugin.sitemap({
-            siteUrl: config.site_url // this is set in the config.xml
-        }))
-        .pipe(gulp.dest(paths.site.dest));
+gulp.task('sitemap', () => {
+  gulp.src([paths.site.dest + '**/*.html'], {
+    read: false
+  })
+  .pipe(plugin.sitemap({
+      siteUrl: config.site_url // this is set in the config.xml
+  }))
+  .pipe(gulp.dest(paths.site.dest));
 });
 
-gulp.task('generate-service-worker', function(callback) {
-    swPrecache.write(paths.site.dest + "service-worker.js", {
-        //staticFileGlobs: [paths.site.dest + '/**/*.{js,html,aspx,css,png,jpg,webp,gif,svg,eot,ttf,woff}'],
-        staticFileGlobs: [
-            paths.site.dest + '/!(registration)/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
-            paths.site.dest + '/*.{js,html,css}'
-        ],
-        runtimeCaching: [{
-            urlPattern: /^http([s]*):\/\/(.*)\.googleapis\.com\/(.*)/,
-            handler: 'networkFirst',
-            options: {
-                cache: {
-                    maxEntries: 10,
-                    name: 'google-cache'
-                }
-            }
-        }],
-        stripPrefix: paths.site.dest
-    }, callback);
+gulp.task('generate-service-worker', () => {
+  return plugin.workboxBuild.generateSW({
+    // wSrc: 'src/sw.js',
+    swDest: paths.site.dest + "sw.js",
+    globDirectory: paths.site.dest,
+    globPatterns: [
+      // '**/*.{html,json,js,css}',
+      '!(registration)/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+      '*.{js,html,css}'
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: /^http([s]*):\/\/(.*)\.googleapis\.com\/(.*)/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'google-cache',
+          expiration: {
+            maxAgeSeconds: 60 * 60 * 24 * 7,
+          },
+        },
+      }
+    ],
+  }).then(({count, size, warnings}) => {
+    // Optionally, log any warnings and details.
+    warnings.forEach(console.warn);
+    console.log(`${count} files will be precached, totaling ${size} bytes.`);
+  });
 });
 
-gulp.task('set-dl-env', function() {
+gulp.task('set-dl-env', () => {
   return process.env.NODE_ENV = 'Development';
 });
-gulp.task('set-ml-env', function() {
+gulp.task('set-ml-env', () => {
   return process.env.NODE_ENV = 'Staging';
 });
-gulp.task('set-prod-env', function() {
+gulp.task('set-prod-env', () => {
   return process.env.NODE_ENV = 'Production';
 });
 
 // clean the _build folder
-gulp.task('site:clean', function() {
+gulp.task('clean', function() {
   let clean = plugin.fs.emptyDirSync(paths.site.dest, err => {
     if (err) return console.error(err);
     console.log('build folder cleaned!');
@@ -74,7 +82,7 @@ gulp.task('site:clean', function() {
 });
 
 // watch for changes
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch(paths.html.sitePages, ['html']);
   gulp.watch(paths.html.templatesFiles, ['html']);
   gulp.watch(paths.images.siteFiles, ['images']);
@@ -84,7 +92,7 @@ gulp.task('watch', function() {
 });
 
 // local webserver
-gulp.task('webserver', ['watch', 'site:critical'], function () {
+gulp.task('webserver', ['watch', 'css:critical'], () => {
   return gulp.src(paths.site.dest)
     .pipe(plugin.webserver({
       //https: true,
