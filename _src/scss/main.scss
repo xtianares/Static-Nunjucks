@@ -1,14 +1,10 @@
 /* --------------------------------------------------------------
     Import CCS Dependencies
 -------------------------------------------------------------- */
+@import 'default';
 @import 'icons';
 @import 'nav';
-@import 'default';
 @import 'buttons';
-@import 'login';
-@import 'checkout';
-@import 'dashboard';
-@import 'player';
 /* --------------------------------------------------------------
     Start Project CSS
 -------------------------------------------------------------- */
@@ -19,7 +15,7 @@ html {
   overflow-y: scroll;
 }
 body {
-  margin-bottom: 60px;
+  margin-bottom: 60px; /* setting for sticky footer */
   font-family: 'Open Sans', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
   color: #555555;
