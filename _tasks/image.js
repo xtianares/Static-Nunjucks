@@ -1,6 +1,5 @@
 // Gulp.js configuration
 const
-  // modules
   gulp            = require('gulp'),
   plugin          = require('../_inc/plugin'),
   config          = require('../_inc/config'),
@@ -8,7 +7,7 @@ const
 ;
 
 // image processing
-gulp.task('imagemin', () => {
+const imagemin = () => {
   return gulp.src(paths.images.siteFiles)
     .pipe(plugin.newer(paths.images.siteDest))
     .pipe(plugin.imagemin([
@@ -23,13 +22,14 @@ gulp.task('imagemin', () => {
         })
     ]))
     .pipe(gulp.dest(paths.images.siteDest));
-});
+};
 
-gulp.task('imagewebp', () => {
+const imagewebp = () => {
   return gulp.src(paths.images.siteFiles)
     .pipe(plugin.newer(paths.images.siteDest))
     .pipe(plugin.webp({ lossless: true, quality: 65 }))
     .pipe(gulp.dest(paths.images.siteDest));
-});
+};
 
-gulp.task('images', ['imagemin', 'imagewebp']);
+exports.imagemin = imagemin;
+exports.imagewebp = imagewebp;

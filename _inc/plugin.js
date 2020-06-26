@@ -19,6 +19,5 @@ module.exports =  {
   sitemap         : require('gulp-sitemap'),
   fs              : require('fs-extra'),
   critical        : require('critical').stream,
-  runSequence     : require('run-sequence'),
   workboxBuild    : require('workbox-build')
 }

@@ -1,14 +1,13 @@
 // Gulp.js configuration
 const
-  // modules
   gulp            = require('gulp'),
   plugin          = require('../_inc/plugin'),
   config          = require('../_inc/config'),
   paths           = require('../_inc/paths')
 ;
+// const { image, html, moveIndex } = require('./index');
 
-// CSS processing using sass
-gulp.task('css', ['images'], () => {
+const sass = () => {
   return gulp.src(paths.css.siteSass)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.sass({
@@ -23,10 +22,9 @@ gulp.task('css', ['images'], () => {
     .pipe(plugin.cleancss({compatibility: 'ie9'}))
     .pipe(plugin.sourcemaps.write(''))
     .pipe(gulp.dest(paths.css.siteDest));
-});
+}
 
-// CSS processing using sass
-gulp.task('css:bootstrap', ['css'], () => {
+const bootstrapCss = () => {
   return gulp.src(paths.css.bsSass)
     .pipe(plugin.sourcemaps.init())
     .pipe(plugin.sass({
@@ -41,11 +39,11 @@ gulp.task('css:bootstrap', ['css'], () => {
     .pipe(plugin.cleancss({compatibility: 'ie10'}))
     .pipe(plugin.sourcemaps.write(''))
     .pipe(gulp.dest(paths.css.bsDest));
-});
+}
 
-// generate and inline critical css for all pages
-gulp.task('css:critical', ['css:bootstrap', 'nunjucks'], () => {
-  var criticalpath =  gulp.src([paths.site.dest+'**/*.html', '!'+paths.site.dest+'index/index.html'])
+const criticalCss = () => {
+  // let criticalpath = gulp.src([paths.site.dest+'**/*.html', '!'+paths.site.dest+'index/index.html'])
+  let criticalpath = gulp.src([paths.site.dest+'**/*.html'])
   // minify production code
   if (process.env.NODE_ENV == 'Staging' || process.env.NODE_ENV == 'Production') {
     criticalpath = criticalpath
@@ -70,4 +68,8 @@ gulp.task('css:critical', ['css:bootstrap', 'nunjucks'], () => {
     .on('error', function(err) { gutil.log(gutil.colors.red(err.message)); })
   }
   return criticalpath.pipe(gulp.dest(paths.site.dest));
-});
+}
+
+exports.sass = sass;
+exports.bootstrapCss = bootstrapCss;
+exports.criticalCss = criticalCss;
