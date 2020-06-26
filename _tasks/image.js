@@ -12,7 +12,7 @@ const imagemin = () => {
     .pipe(plugin.newer(paths.images.siteDest))
     .pipe(plugin.imagemin([
         plugin.imagemin.gifsicle({interlaced: true}),
-        plugin.imagemin.jpegtran({progressive: true}),
+        plugin.imagemin.mozjpeg({progressive: true}),
         plugin.imagemin.optipng({optimizationLevel: 5}),
         plugin.imagemin.svgo({
             plugins: [
