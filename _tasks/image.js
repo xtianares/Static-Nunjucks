@@ -31,5 +31,6 @@ const imagewebp = () => {
     .pipe(gulp.dest(paths.images.siteDest));
 };
 
+// exports.image = gulp.parallel(imagemin, imagewebp);
 exports.imagemin = imagemin;
 exports.imagewebp = imagewebp;

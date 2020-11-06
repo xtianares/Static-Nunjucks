@@ -8,7 +8,8 @@ const
 
 // I have no idea why this needs to be reference like this, watch (gulp.series) fails if it's reference via the export file
 const
-  sass            = require('./css').moveIndex,
+  sass            = require('./css').sass,
+  criticalCss     = require('./css').criticalCss,
   html            = require('./html').html,
   moveIndex       = require('./html').moveIndex,
   imagemin        = require('./image').imagemin,
@@ -47,7 +48,7 @@ const generateServiceWorker = () => {
     swDest: paths.site.dest + "sw.js",
     globDirectory: paths.site.dest,
     globPatterns: [
-      // '**/*.{html,json,js,css}',
+      '**/*.{html,json,js,css}',
       '!(registration)/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
       '*.{js,html,css}'
     ],
@@ -94,11 +95,11 @@ const clean = (cb) => {
 
 // watch for changes
 const watch = (cb) => {
-  gulp.watch(paths.html.sitePages, gulp.series(html, moveIndex));
-  gulp.watch(paths.html.templatesFiles, gulp.series(html, moveIndex));
+  gulp.watch(paths.html.sitePages, gulp.series(html, criticalCss, moveIndex));
+  gulp.watch(paths.html.templatesFiles, gulp.series(html, criticalCss, moveIndex));
   gulp.watch(paths.images.siteFiles, gulp.series(imagemin, imagewebp));
   gulp.watch(paths.js.siteFiles, gulp.series(jsConcat, jsCopy));
-  gulp.watch(paths.css.siteFiles, sass);
+  gulp.watch(paths.css.siteFiles, gulp.series(sass, html, criticalCss, moveIndex));
   gulp.watch(paths.root.files, rootFiles);
   cb();
 };

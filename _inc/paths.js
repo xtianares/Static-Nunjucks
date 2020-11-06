@@ -22,13 +22,15 @@ module.exports = {
     siteDest: '_dist/css/',
     bsFiles: '_src/bootstrap/scss/**/*',
     bsFolder: '_src/bootstrap/scss/',
-    bsSass: '_src/scss/bootstrap/scss/bootstrap.scss',
+    bsSass: 'node_modules/bootstrap/scss/bootstrap.scss',
+    bsMinCss: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
     bsDest: '_dist/css/bootstrap'
   },
   js: {
     siteFiles: '_src/js/**/*',
     siteRootFiles: '_src/js/*',
     siteFolder: '_src/js/',
+    bsFile: 'node_modules/bootstrap/dist/js/bootstrap.min.js',
     siteDest: '_dist/js/',
   },
   downloads: {

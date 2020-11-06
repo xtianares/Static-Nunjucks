@@ -39,7 +39,20 @@ const jsCopy = () => {
     .pipe(gulp.dest(paths.js.siteDest));
 };
 
+// bootstrap js processing
+const jsBootstrap = () => {
+  return gulp.src([paths.js.bsFile])
+    .pipe(plugin.newer(paths.js.siteDest))
+    // .pipe(plugin.babel({
+    //   presets: ['@babel/preset-env']
+    // }))
+    // .pipe(plugin.stripdebug())
+    // .pipe(plugin.uglify())
+    .pipe(gulp.dest(paths.js.siteDest));
+};
+
 // js processing
-exports.jsConcat = jsConcat;
 // exports.js = gulp.parallel(jsConcat, jsCopy);
-exports.jsCopy = jsCopy;
+exports.jsConcat = jsConcat;
+exports.jsCopy = jsBootstrap;
+exports.jsCopy = gulp.parallel(jsBootstrap, jsCopy);;
